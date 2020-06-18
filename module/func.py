@@ -712,7 +712,7 @@ def sendButton3(event):  #按鈕樣版
                 actions=[
                 URITemplateAction(
                         label='最終受益人查詢',
-                        uri='https://reurl.cc/lVAQl9'
+                        uri='http://120.125.73.101:3838/asisstuc/06171226/Fintech/select_all.html'
                     ),
 		]
             )
