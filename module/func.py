@@ -707,7 +707,8 @@ def sendButton3(event):  #按鈕樣版
             alt_text='重要資訊',
             template=ButtonsTemplate(
                 thumbnail_image_url='https://evernote.com/blog/wp-content/uploads/2016/08/Facebook_LinkImage_1200x627-copy-1-300x300.png',  #顯示的圖片
-                text='重要資訊：',  #副標題
+                title=' ',  #主標題
+		text='重要資訊：',  #副標題
                 actions=[
                 URITemplateAction(
                         label='最終受益人查詢',
