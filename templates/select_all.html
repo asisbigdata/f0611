@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>最終受益公司資料查詢</title>
+	<style>
+	input[type=text], select {
+	  width: 100%;
+	  padding: 12px 20px;
+	  margin: 8px 0;
+	  display: inline-block;
+	  border: 1px solid #ccc;
+	  border-radius: 4px;
+	  box-sizing: border-box;
+	}
+
+	input[type=submit] {
+	  width: 100%;
+	  background-color: #1E90FF;
+	  color: white;
+	  padding: 14px 20px;
+	  margin: 8px 0;
+	  border: none;
+	  border-radius: 4px;
+	  cursor: pointer;
+	  font-family:DFKai-sb; /*標楷體*/
+	  font-size: 20px; //字型大小
+	}
+
+	input[type=submit]:hover {
+	  background-color: #6495ED;
+	}
+
+	div {
+	  border-radius: 5px;
+	  background-color: #f2f2f2;
+	  padding: 20px;
+	  font-family:Times New Roman; /*Times New Roman*/
+	  font-size: 20px;
+	}
+	</style>
+
+</head>
+<body style="background-color:#ffd699">
+               
+<form action="" method="POST">{% csrf_token %}
+<table  style="position:absolute;top:20px;left:20px;font-family:標楷體; font-size:20px;" >
+	<th>最終受益公司資料查詢</th>
+	<tr>
+	<td></td>
+	</tr>
+	
+        <tr>
+		<td>統編：(範圍:16750540)</td>
+		</tr>
+		<tr>
+		<td><input type="text" name="cComid"></td>
+         </tr>
+		 
+         <tr>
+		<td>職務：</td><br>
+		</tr>
+	<tr>
+		<td><select name="cPosition">
+		 <option value="">全部</option>
+		 <option value="董事">董事</option>
+		 <option value="董事長">董事長</option>
+		 <option value="監察人">監察人</option>
+		 <option value="副董事長">副董事長</option>
+		 <option value="獨立董事">獨立董事</option>
+		</select></td><br>
+	
+		<!-- <td><input type="text" name="cPosition"></td><br> -->
+         </tr>
+		 
+		 
+         <tr>
+		<td>持股數或投資金額：(範例:50,000)</td><br>
+		</tr>
+		<tr>
+		<td><input type="text" name="cSharemoney" value="0"></td><br>
+         </tr>
+		 			
+         <tr>
+			<td><input type="submit" value="查詢"></td><br>
+		</tr>
+</table>				
+	
+</form>
+			
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	  <!--CSS動畫-->
+ 
+
+  <marquee behavior="scroll" width="100%"><font face="微軟正黑體" size=13 color="#81bba5"><b>Hello~這裡是最終受益人網頁喔！</b></font></marquee>
+  
+	
+	
+
+
+
+   <hr color="#FFFFFF" width="57%">
+<p align="center" class="animated shake" style="animation-duration: 3s ;animation-iteration-count:1"><b><font size=16 color="#cc7a00" face="微軟正黑體">洗錢相關小知識</font></b></p>
+    <hr color="#FFFFFF" width="57%">
+
+  <table border="8" cellpadding="0" width="58%" height="90%" align="center" bordercolor="#FFFFFF">
+  
+  <!--<tr>
+  <td colspan=3></td>
+  </tr>-->
+
+  
+  <tr>
+  <td bgcolor="#f99feb" colspan=3><p align="center"><font size=4 face="微軟正黑體" color="#FFFFFF"><ul>
+<p align="center"><何謂洗錢></p>
+
+<li>「洗錢」係指犯罪者將其不法行為活動所獲得的資金或財產，透過各種交易管道，
+                      轉換成為合法來源的資金與財產，以便隱藏其犯罪行為，避免司法的偵查。</li>
+  
+  <tr>
+  <td bgcolor="#f99feb" colspan=3><p align="center"><font size=4 face="微軟正黑體" color="#FFFFFF"><ul>
+<p align="center"><全球洗錢之規模></p>
+<li>依據國際貨幣基金組織(IMF)的估算，洗錢規模超過全球國內生產總值(GDP的5%)</li>
+
+<li>依據聯合國預估，全球每年在國際流通的洗錢金額約達8000億至2兆美元，占全球GDP之2%-5%。</li></ul></font></p></td>
+ </tr>
+  </table>	
+	
+				
+
+
+<table border="1" style="position:absolute;top:10px;left:500px;">
+        <th>統編</th>
+	<th>職務</th>
+	<th>持股數或投資金額</th>
+
+			
+	    {% for n in select_all %} 
+	<tr>
+		<td>{{n.cComid}}  </td>
+		<td>{{n.cPosition}}  </td>
+		<td>{{n.cSharemoney}}  </td>
+    </tr>
+	
+ {% endfor %} 
+
+
+</table>
+
+	
+   <hr color="#FFFFFF" width="57%">
+ 
+   <p align="center" class="animated shake" style="animation-duration: 3s ;animation-iteration-count:1"><b><font size=16 color="#cc7a00" face="微軟正黑體">語法解釋</font></b></p>
+  <hr color="#FFFFFF" width="57%">
+	  <br>
+		
+  <table border="8" cellpadding="0" width="68%" height="90%" align="center" bordercolor="#FFFFFF">
+  
+  <!--<tr>
+  <td colspan=3></td>
+  </tr>-->
+ 
+  <tr>
+  <td bgcolor="#d9ffb3"><p align="left"><font size=4 face="新細明體">&lt;html&gt;&lt;/html&gt;</font></p></td>
+  <td bgcolor="#FFFFFF"><p align="left"><font size=4 face="新細明體">此標籤是置於整個文件的開始和結束之處，以供瀏覽器識別此文件為合法的文件。</font></p></td>
+  </tr>
+  <tr>
+  <td bgcolor="#d9ffb3"><p align="left"><font size=4 face="新細明體">&lt;head&gt;&lt;/head&gt;</font></p></td>
+  <td bgcolor="#FFFFFF"><p align="left"><font size=4 face="新細明體">此標籤是用以表示標頭資訊的開始與結束，在&lt;head&gt;與&lt;/head&gt;之間可加入其它標籤&lt;title&gt;&lt;/title&gt;或&lt;meta&gt;等。</font></p></td>
+  </tr>
+  <tr>
+  <td bgcolor="#d9ffb3"><p align="left"><font size=4 face="新細明體">&lt;meta&gt;</font></p></td>
+  <td bgcolor="#FFFFFF"><p align="left"><font size=4 face="新細明體"> 標籤位於文檔的頭部，不包含任何內容。其屬性定義了與文檔相關聯的名稱/值對。</font></p></td>
+  </tr>
+  <tr>
+  <td bgcolor="#d9ffb3"><p align="left"><font size=4 face="新細明體">&lt;title&gt;&lt;/title&gt;</font></p></td>
+  <td bgcolor="#FFFFFF"><p align="left"><font size=4 face="新細明體">此標籤中的就是此網頁的標題，也就是您瀏覽器最左上面的標題，若沒設則只會顯示成此網頁所在的網址。</font></p></td>
+  </tr>
+  <tr>
+  <td bgcolor="#d9ffb3"><p align="left"><font size=4 face="新細明體">&lt;body&gt;&lt;/body&gt;</font></p></td>
+  <td bgcolor="#FFFFFF"><p align="left"><font size=4 face="新細明體">此標籤中所寫的內容即會顯示於網頁裡面。</font></p></td>
+  </tr> 
+ <tr>  
+  <td bgcolor="#d9ffb3"><p align="left"><font size=4 face="新細明體">&lt;section&gt;&lt;/section&gt;</font></p></td>
+  <td bgcolor="#FFFFFF"><p align="left"><font size=4 face="新細明體">定義一個大的段落。</font></p></td>
+  </tr>
+   <tr>
+  <td bgcolor="#d9ffb3"><p align="left"><font size=4 face="新細明體">&lt;article&gt;&lt;/article&gt;</font></p></td>
+  <td bgcolor="#FFFFFF"><p align="left"><font size=4 face="新細明體">定義段落裡的一篇文章。</font></p></td>
+  </tr>
+   <tr>
+  <td bgcolor="#d9ffb3"><p align="left"><font size=4 face="新細明體">&lt;aside&gt;&lt;/aside&gt;</font></p></td>
+  <td bgcolor="#FFFFFF"><p align="left"><font size=4 face="新細明體">網頁內容以外的項目，大多都是側邊攔目。</font></p></td>
+  </tr>
+   <tr>
+  <td bgcolor="#d9ffb3"><p align="left"><font size=4 face="新細明體">&lt;figure&gt;&lt;/figure&gt;</font></p></td>
+  <td bgcolor="#FFFFFF"><p align="left"><font size=4 face="新細明體">定義內體內容的區塊。</font></p></td>
+  </tr>
+   <tr>
+  <td bgcolor="#d9ffb3"><p align="left"><font size=4 face="新細明體">&lt;figcaption&gt;&lt;/figcaption&gt;</font></p></td>
+  <td bgcolor="#FFFFFF"><p align="left"><font size=4 face="新細明體">定義媒體區塊的標題文字。</font></p></td>
+  </tr>
+    <tr>
+  <td bgcolor="#d9ffb3"><p align="left"><font size=4 face="新細明體">&lt;header&gt;&lt;/header&gt;</font></p></td>
+  <td bgcolor="#FFFFFF"><p align="left"><font size=4 face="新細明體">定義段落中的標題，不是&lt;head&gt;&lt;/head&gt;喔。</font></p></td>
+  </tr>
+   <tr>
+  <td bgcolor="#d9ffb3"><p align="left"><font size=4 face="新細明體">&lt;footer&gt;&lt;/footer&gt;</font></p></td>
+  <td bgcolor="#FFFFFF"><p align="left"><font size=4 face="新細明體">定義頁尾的資訊。</font></p></td>
+  </tr>
+    <tr>
+  <td bgcolor="#d9ffb3"><p align="left"><font size=4 face="新細明體">&lt;nav&gt;&lt;/nav&gt;</font></p></td>
+  <td bgcolor="#FFFFFF"><p align="left"><font size=4 face="新細明體"> 定義導覽列的內容。</font></p></td>
+  </tr>
+  <tr>
+  <td bgcolor="#d9ffb3"><p align="left"><font size=4 face="新細明體">&lt;br&gt;</font></p></td>
+  <td bgcolor="#FFFFFF"><p align="left"><font size=4 face="新細明體">此標籤是跳下一行，若您的本文沒使用段行標籤的話，基本上則會寫滿一個畫面才會跳下一行，而使用&lt;br&gt;的話則可在適當的地方讓文章能換行。</font></p></td>
+  </tr>
+  <tr>
+  <td bgcolor="#d9ffb3"><p align="left"><font size=4 face="新細明體">&lt;p&gt;&lt;/p&gt;</font></p></td>
+  <td bgcolor="#FFFFFF"><p align="left"><font size=4 face="新細明體">此標籤是段落，若您的本文沒使用段行標籤的話，基本上則會寫滿一個畫面才會跳下一行，而使用&lt;p&gt;的話則可自動跳到下一段落，也就是中間會空一行，這與&lt;br&gt;有不同之處。</font></p></td>
+  </tr>
+  <tr>
+  <td bgcolor="#d9ffb3"><p align="left"><font size=4 face="新細明體">&lt;hr&gt;</font></p></td>
+  <td bgcolor="#FFFFFF"><p align="left"><font size=4 face="新細明體">此標籤會產生一條分格線。</font></p></td>
+  </tr>
+  <tr>
+  <td bgcolor="#d9ffb3"><p align="left"><font size=4 face="新細明體">&lt;hr size=4&gt;</font></p></td>
+  <td bgcolor="#FFFFFF"><p align="left"><font size=4 face="新細明體">可使用size來控制分格線的高度。</font></p></td>
+  </tr>
+  <tr>
+  <td bgcolor="#d9ffb3"><p align="left"><font size=4 face="新細明體"> &lt;hr width=500&gt;</font></p></td>
+  <td bgcolor="#FFFFFF"><p align="left"><font size=4 face="新細明體">可使用width來控制分格線的長度。</font></p></td>
+  </tr>
+  <tr>
+  <td bgcolor="#d9ffb3"><p align="left"><font size=4 face="新細明體">&lt;hr color=ff0000&gt;</font></p></td>
+  <td bgcolor="#FFFFFF"><p align="left"><font size=4 face="新細明體">可使用color來控制分格線的顏色(請參照色碼表)本範例為紅色。</font></p></td>
+  </tr>
+  <tr>
+  <td bgcolor="#d9ffb3"><p align="left"><font size=4 face="新細明體">&lt;hr align=right&gt;</font></p></td>
+  <td bgcolor="#FFFFFF"><p align="left"><font size=4 face="新細明體">可使用align來控制分格線的位置(預設為置中center)右right、左left。</font></p></td>
+  </tr>
+  <tr>
+  <td bgcolor="#d9ffb3"><p align="left"><font size=4 face="新細明體">&lt;center&gt;&lt;/center&gt;</font></p></td>
+  <td bgcolor="#FFFFFF"><p align="left"><font size=4 face="新細明體">將所要置中的文字或圖片置於&lt;center&gt;與&lt;/center&gt;之間即可。</font></p></td>
+  </tr>
+  <tr>
+  <td bgcolor="#d9ffb3"><p align="left"><font size=4 face="新細明體">&lt;strong&gt;&lt;/strong&gt;</font></p></td>
+  <td bgcolor="#FFFFFF"><p align="left"><font size=4 face="新細明體">用以加強文字的粗體效果。</font></p></td>
+  </tr>
+  <tr>
+  <td bgcolor="#d9ffb3"><p align="left"><font size=4 face="新細明體">&lt;!----&gt;</font></p></td>
+  <td bgcolor="#FFFFFF"><p align="left"><font size=4 face="新細明體">註解之意，於&lt;!----&gt;之間的所有文字皆不會出現。</font></p></td>
+  </tr>
+  <tr>
+  <td bgcolor="#d9ffb3"><p align="left"><font size=4 face="新細明體">&lt;font size=&quot;&quot;&gt;&lt;/font&gt;</font></p></td>
+  <td bgcolor="#FFFFFF"><p align="left"><font size=4 face="新細明體">只要將要放大或要縮小的文字放置於語法&lt;font size=&quot;&quot;&gt;與&lt;/font&gt;之間。</font></p></td>
+  </tr>
+  <tr>
+  <td bgcolor="#d9ffb3"><p align="left"><font size=4 face="新細明體">&lt;font color=&quot;&quot;&gt;&lt;/font&gt;</font></p></td>
+  <td bgcolor="#FFFFFF"><p align="left"><font size=4 face="新細明體">改變字的顏色。</font></p></td>
+  </tr>
+  <tr>
+  <td bgcolor="#d9ffb3"><p align="left"><font size=4 face="新細明體">&lt;font face=&quot;字型全名&quot;&gt;&lt;/font&gt;</font></p></td>
+  <td bgcolor="#FFFFFF"><p align="left"><font size=4 face="新細明體">改變字型。</font></p></td>
+  </tr>
+  <tr>
+  <td bgcolor="#d9ffb3"><p align="left"><font size=4 face="新細明體">&lt;b&gt;&lt;/b&gt;</font></p></td>
+  <td bgcolor="#FFFFFF"><p align="left"><font size=4 face="新細明體">於標籤內的文字變為粗體。</font></p></td>
+  </tr>
+  <tr>
+  <td bgcolor="#d9ffb3"><p align="left"><font size=4 face="新細明體">&lt;ul&gt;&lt;/ul&gt; </font></p></td>
+  <td bgcolor="#FFFFFF"><p align="left"><font size=4 face="新細明體">非排序性列表。</font></p></td>
+  </tr>
+  <tr>
+  <td bgcolor="#d9ffb3"><p align="left"><font size=4 face="新細明體">&lt;li&gt;&lt;/li&gt;</font></p></td>
+  <td bgcolor="#FFFFFF"><p align="left"><font size=4 face="新細明體">非排序性項目符號。</font></p></td>
+  </tr>
+  <tr>
+  <td bgcolor="#d9ffb3"><p align="left"><font size=4 face="新細明體">&lt;marquee&gt;要出現的字或圖&lt;/marquee&gt;</font></p></td>
+  <td bgcolor="#FFFFFF"><p align="left"><font size=4 face="新細明體">跑馬燈（左進右出式）。</font></p></td>
+  </tr>
+  <tr>
+  <td bgcolor="#d9ffb3"><p align="left"><font size=4 face="新細明體">&lt;marquee 
+                  behavior=alternate&gt;&lt;/marquee&gt;</font></p></td>
+  <td bgcolor="#FFFFFF"><p align="left"><font size=4 face="新細明體">跑馬燈（左右來回式）。</font></p></td>
+  </tr>
+  <tr>
+  <td bgcolor="#d9ffb3"><p align="left"><font size=4 face="新細明體">&lt;a 
+                  href=&quot;連結網址&quot;&gt;說明文字&lt;/a&gt;</font></p></td>
+  <td bgcolor="#FFFFFF"><p align="left"><font size=4 face="新細明體">用以連結網址，而說明文字是讓人知道這連結是連到什麼的。</font></p></td>
+  </tr>
+  <tr>
+  <td bgcolor="#d9ffb3"><p align="left"><font size=4 face="新細明體">&lt;a href=&quot;mailto:你的E-Mail&quot;&gt;說明文字&lt;/a&gt;</font></p></td>
+  <td bgcolor="#FFFFFF"><p align="left"><font size=4 face="新細明體">電子郵件(E-Mail)超連結。</font></p></td>
+  </tr>
+  <tr>
+  <td bgcolor="#d9ffb3"><p align="left"><font size=4 face="新細明體">&lt;a href=&quot;#書籤&quot;&gt;&lt;/a&gt;</font></p></td>
+  <td bgcolor="#FFFFFF"><p align="left"><font size=4 face="新細明體">書籤的超連結，只要在頁內做好各點的書籤就可以自由活動了。很常用在回到頂端TOP的地方。</font></p></td>
+  </tr>
+  <tr>
+  <td bgcolor="#d9ffb3"><p align="left"><font size=4 face="新細明體">&lt;img src=&quot;圖檔的所在&quot; alt=&quot;圖片註解&quot;&gt;</font></p></td>
+  <td bgcolor="#FFFFFF"><p align="left"><font size=4 face="新細明體">貼圖標籤及圖片註解。</font></p></td>
+  </tr>
+  <tr>
+  <td bgcolor="#d9ffb3"><p align="left"><font size=4 face="新細明體">&lt;table&gt;&lt;/table&gt;</font></p></td>
+  <td bgcolor="#FFFFFF"><p align="left"><font size=4 face="新細明體">此標籤是表格的基本，而其基本設定還有很多。</font></p></td>
+  </tr>
+  <tr>
+  <td bgcolor="#d9ffb3"><p align="left"><font size=4 face="新細明體">&lt;tr&gt;&lt;/tr&gt;</font></p></td>
+  <td bgcolor="#FFFFFF"><p align="left"><font size=4 face="新細明體">此標籤是列之意，而每列中可有很多的儲存格。</font></p></td>
+  </tr>
+  <tr>
+  <td bgcolor="#d9ffb3"><p align="left"><font size=4 face="新細明體">&lt;td&gt;&lt;/td&gt;</font></p></td>
+  <td bgcolor="#FFFFFF"><p align="left"><font size=4 face="新細明體">此標籤是屬一般的資料儲存格。</font></p></td>
+  </tr>
+  <tr>
+  <td bgcolor="#d9ffb3"><p align="left"><font size=4 face="新細明體">border=設定[表格]</font></p></td>
+  <td bgcolor="#FFFFFF"><p align="left"><font size=4 face="新細明體">此標籤是設定外框的厚度大小，例如border=3，若0則沒有外框。</font></p></td>
+  </tr>
+   <tr>
+  <td bgcolor="#d9ffb3"><p align="left"><font size=4 face="新細明體">text=&quot;設定&quot;</font></p></td>
+  <td bgcolor="#FFFFFF"><p align="left"><font size=4 face="新細明體">設定基本文字的顏色，例如text=&quot;0000ff&quot;，內定是黑色。</font></p></td>
+  </tr>
+   <tr>
+  <td bgcolor="#d9ffb3"><p align="left"><font size=4 face="新細明體">link=&quot;設定&quot;</font></p></td>
+  <td bgcolor="#FFFFFF"><p align="left"><font size=4 face="新細明體">設定超連結文字的顏色，例如link=&quot;ff0000&quot;，內定是藍色。</font></p></td>
+  </tr>
+   <tr>
+  <td bgcolor="#d9ffb3"><p align="left"><font size=4 face="新細明體">bgcolor=&quot;設定&quot;</font></p></td>
+  <td bgcolor="#FFFFFF"><p align="left"><font size=4 face="新細明體">設定背景顏色，例如bgcolor=&quot;ffcc00&quot;，內定是白色。</font></p></td>
+  </tr>
+   <tr>
+  <td bgcolor="#d9ffb3"><p align="left"><font size=4 face="新細明體">background</font></p></td>
+  <td bgcolor="#FFFFFF"><p align="left"><font size=4 face="新細明體">設定背景圖片，用法background=&quot;圖片所在網址&quot;。</font></p></td>
+  </tr>
+   <tr>
+  <td bgcolor="#d9ffb3"><p align="left"><font size=4 face="新細明體">&lt;div&gt;&lt;/div&gt;</font></p></td>
+  <td bgcolor="#FFFFFF"><p align="left"><font size=4 face="新細明體">其間包起來的部份就是區塊內容，可以是文字、圖片、影片、框架 ... 等網頁內容，開頭的&lt;div&gt;區塊內可以設置 id、class 或直接開始一段樣式設計，也就是 style 的部份。
+</font></p></td>
+  </tr>
+   <tr>
+  <td bgcolor="#d9ffb3"><p align="left"><font size=4 face="新細明體">id</font></p></td>
+  <td bgcolor="#FFFFFF"><p align="left"><font size=4 face="新細明體">它的作用是在頁面的所有元素中，將某個元素獨立辨識出來。</font></p></td>
+  </tr>
+   <tr>
+  <td bgcolor="#d9ffb3"><p align="left"><font size=4 face="新細明體">class</font></p></td>
+  <td bgcolor="#FFFFFF"><p align="left"><font size=4 face="新細明體">有時候想做的並非獨立識別文件中的單一元素，而是將幾個元素從其他元素中獨立出來。</font></p></td>
+  </tr>
+   <tr>
+  <td bgcolor="#d9ffb3"><p align="left"><font size=4 face="新細明體">style</font></p></td>
+  <td bgcolor="#FFFFFF"><p align="left"><font size=4 face="新細明體">用於為HTML 文檔定義樣式信息。</font></p></td>
+  </tr>
+   <tr>
+  <td bgcolor="#d9ffb3"><p align="left"><font size=4 face="新細明體">&lt;script&gt;&lt;/script&gt;</font></p></td>
+  <td bgcolor="#FFFFFF"><p align="left"><font size=4 face="新細明體">標籤用於定義客戶端腳本，比如JavaScript。</font></p></td>
+  </tr>
+   <tr>
+  <td bgcolor="#d9ffb3"><p align="left"><font size=4 face="新細明體">&lt;noscript&gt;&lt;/noscript&gt;</font></p></td>
+  <td bgcolor="#FFFFFF"><p align="left"><font size=4 face="新細明體"> 元素用來定義在腳本未被執行時的替代內容（文本）。
+      此標籤可被用於可識別&lt;script&gt;&lt;/script&gt;標籤但無法支持其中的腳本的瀏覽器。</font></p></td>
+  </tr>
+   <tr>
+  <td bgcolor="#d9ffb3"><p align="left"><font size=4 face="新細明體">&lt;input type=text&gt;</font></p></td>
+  <td bgcolor="#FFFFFF"><p align="left"><font size=4 face="新細明體">文字欄位。</font></p></td>
+  </tr>
+   <tr>
+  <td bgcolor="#d9ffb3"><p align="left"><font size=4 face="新細明體">&lt;textarea&gt;&lt;/teatarea&gt;</font></p></td>
+  <td bgcolor="#FFFFFF"><p align="left"><font size=4 face="新細明體">文字輸入方塊。</font></p></td>
+  </tr>
+   <tr>
+  <td bgcolor="#d9ffb3"><p align="left"><font size=4 face="新細明體">&lt;input type=submit&gt;</font></p></td>
+  <td bgcolor="#FFFFFF"><p align="left"><font size=4 face="新細明體">執行按鈕，執行由 action 後所指定的 cgi 程式。</font></p></td>
+  </tr>
+   <tr>
+  <td bgcolor="#d9ffb3"><p align="left"><font size=4 face="新細明體">&lt;input type=reset&gt;</font></p></td>
+  <td bgcolor="#FFFFFF"><p align="left"><font size=4 face="新細明體">取消按鈕，還原表單內的資料為內定值。</font></p></td>
+  </tr>
+   <tr>
+  <td bgcolor="#d9ffb3"><p align="left"><font size=4 face="新細明體">&lt;input type=button&gt;</font></p></td>
+  <td bgcolor="#FFFFFF"><p align="left"><font size=4 face="新細明體">一般按鈕，使用者自行設計的按鈕。</font></p></td>
+  </tr> 
+  </table>
+  <br>
+  
+
+  <br>
+        
+       
+
+</body>
+</html>
