@@ -706,7 +706,7 @@ def sendButton3(event):  #按鈕樣版
         message = TemplateSendMessage(
             alt_text='重要資訊',
             template=ButtonsTemplate(
-                thumbnail_image_url='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTAbBLFzkUIGJndS970UI6i0B2jfTDs6Uy1AtyVMtMDuHwPWlWV&usqp=CAU',  #顯示的圖片
+                thumbnail_image_url='https://evernote.com/blog/wp-content/uploads/2016/08/Facebook_LinkImage_1200x627-copy-1-300x300.png',  #顯示的圖片
                 title=' ',  #主標題
 		text='重要資訊：',  #副標題
                 actions=[
