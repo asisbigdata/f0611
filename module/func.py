@@ -713,6 +713,7 @@ def sendButton3(event):  #按鈕樣版
                         label='最終受益人查詢',
                         uri='https://reurl.cc/lVAQl9'
                     ),
+		]
             )
         )
         line_bot_api.reply_message(event.reply_token, message)
