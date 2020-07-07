@@ -33,11 +33,11 @@ from linebot.models import *
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'Uff684bec73afec37e18f1a1a56d66101'
+SECRET_KEY = 'U366d13dc7ad1cb2324e08671ba0302c8'
 # 必須放上自己的Channel Access Token
-LINE_CHANNEL_ACCESS_TOKEN ='oFIGY3vVcqShlfPRLoEiL9Ae9i8AdegpgsQuthXtELpmtWUAlogA9GRtQh7qqjrl767E+JnlWJcSIaPsHjDvX1uodUvso9TDlPkMu8A0eCn0PpUL954SSOLlfO5ZyRsCbxjKS8miIZjwYy5693pJlAdB04t89/1O/w1cDnyilFU='
+LINE_CHANNEL_ACCESS_TOKEN ='/IiYT15vRmdIlPWIb25zd1OL06vPWpNpOAvhWq7dQoq6IKKO0RwkRyU0NtkCP8puDxgrDYxdHtCyfEL9RVOh3ttvxtix7ulyRIKfqqIRcFOnp2Cu/9sdebfZyEu6x+6jUWNOWZtaJ95PQ+m0j4nWSwdB04t89/1O/w1cDnyilFU='
 # 必須放上自己的Channel Secret
-LINE_CHANNEL_SECRET='cd9af7d9501307934f631780d224ea0e'
+LINE_CHANNEL_SECRET='77420eff1299232cf4314b8aebb2a960'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 ALLOWED_HOSTS = ['*']
